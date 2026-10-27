@@ -436,6 +436,9 @@ dialog {
   border-radius: var(--r);
   padding: 24px;
   width: min(520px, calc(100% - 32px));
+  position: fixed;
+  inset: 0;
+  margin: auto;
 }
 dialog::backdrop {
   background: rgba(10, 20, 35, 0.6);
@@ -883,6 +886,7 @@ blockquote footer {
 #lb .ph img {
   object-fit: contain;
   background: #0d1626;
+  max-height: 80dvh;
 }
 #lb .bar2 {
   display: flex;

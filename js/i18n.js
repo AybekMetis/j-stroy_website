@@ -195,7 +195,7 @@
     ["Оставьте заявку, и мы свяжемся с вами в течение рабочего дня.",
      "Ariza qoldiring, biz ish kuni davomida siz bilan bogʻlanamiz.",
      "Leave a request and we will contact you within one business day."],
-    ["Ташкент, ул. Слонима, 9", "Toshkent, Slonim koʻchasi, 9", "9 Slonim St., Tashkent"],
+    ["г. Ташкент, ул. Мирзо Улугбека, 55", "Toshkent, Mirzo Ulugʻbek koʻchasi, 55", "55 Mirzo Ulugbek St., Tashkent"],
     ["Имя", "Ism", "Name"],
     ["Телефон", "Telefon", "Phone"],
     ["Услуга", "Xizmat", "Service"],

@@ -460,6 +460,46 @@ dialog .x {
   cursor: pointer;
   margin: -12px -12px 0 0;
 }
+
+#modal {
+  display: none;
+}
+
+#modal[open] {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  max-height: 85vh;
+  overflow: hidden;
+  padding: 20px;
+}
+
+#modal .x {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  left: auto;
+  margin: 0;
+}
+
+#m-body {
+  overflow-y: auto;
+  padding-right: 6px;
+  flex: 1 1 auto;
+}
+
+#m-body {
+  padding-bottom: 16px;
+}
+
+.m-slogan {
+  margin: 14px 0 0;
+}
+
+#m-cta {
+  margin-top: 12px;
+}
+
 /* motion */
 .btn,
 .card,

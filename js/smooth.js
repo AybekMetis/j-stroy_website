@@ -1,5 +1,4 @@
 (function () {
-  // Своя анимация: не зависит от CSS и от других скриптов
   const html = document.documentElement;
   const header = document.querySelector('header');
 
@@ -8,7 +7,7 @@
     const dist = targetY - startY;
     let t0 = null;
 
-    html.style.scrollBehavior = 'auto'; // отключаем CSS-плавность на время анимации, чтобы не конфликтовала
+    html.style.scrollBehavior = 'auto';
 
     const ease = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
@@ -22,7 +21,6 @@
     requestAnimationFrame(step);
   }
 
-  // capture: true — наш обработчик срабатывает раньше остальных
   document.addEventListener('click', function (e) {
     const a = e.target.closest('a[href^="#"]');
     if (!a) return;
@@ -32,7 +30,10 @@
     if (!target) return;
 
     e.preventDefault();
-    e.stopImmediatePropagation(); // глушим старые обработчики, которые прыгают мгновенно
+    e.stopImmediatePropagation();
+
+    const modal = document.getElementById('modal');
+    if (modal && modal.open) modal.close();
 
     const offset = header ? header.offsetHeight : 0;
     const y = id.length > 1
@@ -42,7 +43,6 @@
     smoothTo(Math.max(0, y));
     if (id.length > 1) history.pushState(null, '', id);
 
-    // закрыть мобильное меню
     if (header) header.classList.remove('open');
     const burger = document.querySelector('.burger');
     if (burger) burger.setAttribute('aria-expanded', 'false');

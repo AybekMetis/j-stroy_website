@@ -142,27 +142,21 @@ header.open nav ul {
 /* hero */
 .hero {
   background:
-    linear-gradient(rgba(22, 38, 61, 0.6), rgba(22, 38, 61, 0.6)),
-    repeating-linear-gradient(
-      0deg,
-      transparent 0 39px,
-      rgba(255, 255, 255, 0.06) 39px 40px
-    ),
-    url('images/zaid-ali-1-Ss58K4D28-unsplash.jpg') center/cover no-repeat, 
-    repeating-linear-gradient(
+    linear-gradient(
       90deg,
-      transparent 0 39px,
-      rgba(255, 255, 255, 0.06) 39px 40px
+      rgba(14, 24, 41, 0.55) 0%,
+      rgba(22, 38, 61, 0.25) 45%,
+      rgba(22, 38, 61, 0.08) 100%
     ),
+    url('images/hero_background.png') center/cover no-repeat,
     var(--ink);
   color: #fff;
-  padding: 72px 0 80px;
-
-  min-height: 65vh; /* Занимает минимум 65% высоты экрана */
+  min-height: 65vh;
   display: flex;
-  align-items: center; /* Центрирует текст по вертикали */
+  align-items: center;
   padding: 80px 0;
 }
+
 .hero h1 {
   font-size: clamp(2rem, 8vw, 3.8rem);
   /* max-width: 18ch; */
@@ -170,9 +164,10 @@ header.open nav ul {
 }
 .hero p {
   font-size: 1.1rem;
-  color: #cfd9e8;
+  color: #fff;
   max-width: 52ch;
   margin-bottom: 28px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
 }
 .hero .row {
   display: flex;

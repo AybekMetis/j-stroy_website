@@ -306,8 +306,8 @@ background:
   flex: none;
   min-height: 48px;
   padding: 0 20px;
-  border: 2px solid var(--ink);
-  border-radius: 999px;
+  border: 1px solid var(--ink);
+  border-radius: 14px;
   background: none;
   font: inherit;
   font-weight: 600;
@@ -363,7 +363,7 @@ background:
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 2px solid var(--ink);
+  border: 1px solid var(--ink);
   background: none;
   font-size: 1.3rem;
   cursor: pointer;
@@ -726,7 +726,7 @@ footer {
 }
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 6px 16px var(--sun);
 }
 .btn:active,
 .filters button:active,
@@ -743,7 +743,7 @@ footer {
   color: #fff;
 }
 .filters button:hover {
-  background: var(--ink2);
+  background: var(--sun);
   color: #fff;
 }
 header {

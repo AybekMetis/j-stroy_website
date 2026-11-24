@@ -274,7 +274,7 @@ const PROCESS_DATA = {
     title: 'Проектирование и ремонт',
     subtitle: 'От идеи до полностью готового пространства.',
     shortDesc: 'Создаём продуманные интерьеры и реализуем ремонт под ключ с контролем качества.',
-    image: 'images/jstroy_service_design_remont.jpg',
+    image: 'images/process1.png',
     steps: [
       { title: 'Заявка и консультация', text: 'Обсуждаем ваши задачи, пожелания, бюджет и сроки.' },
       { title: 'Проектирование и смета', text: 'Разрабатываем дизайн-проект или работаем по готовому. Составляем смету и согласовываем условия.' },
@@ -287,7 +287,7 @@ const PROCESS_DATA = {
     title: 'Управление и аренда',
     subtitle: 'Стабильный доход и контроль объекта без лишних хлопот.',
     shortDesc: 'Помогаем получать стабильный доход от недвижимости.',
-    image: 'images/jstroy_service_upravlenie_arenda-1.jpg',
+    image: 'images/process2.png',
     steps: [
       { title: 'Подготовка объекта', text: 'Оцениваем состояние, даём рекомендации по комплектации и подготовке к показам.' },
       { title: 'Поиск арендаторов', text: 'Подбираем надёжных арендаторов, проводим показы и сопровождаем договор.' },
@@ -300,7 +300,7 @@ const PROCESS_DATA = {
     title: 'Обслуживание и клининг',
     subtitle: 'Чистота, порядок и техническая исправность каждый день.',
     shortDesc: 'Сохраняем комфорт и безупречное состояние вашего объекта.',
-    image: 'images/jstroy_service_obsluzhivanie_klining.jpg',
+    image: 'images/process3.png',
     steps: [
       { title: 'Оценка и регламент', text: 'Определяем задачи по уборке и техническому обслуживанию под тип объекта.' },
       { title: 'Уборка и клининг', text: 'Проводим генеральную, поддерживающую и постремонтную уборку.' },
@@ -319,6 +319,59 @@ const PROCESS_DATA = {
   const tabs = $$('.proc-tab', section);
   const keys = Object.keys(PROCESS_DATA);
   let activeKey = 'design';
+
+  function initProcAccordion() {
+    otherList.querySelectorAll('.proc-other-item').forEach(d => {
+      const summary = d.querySelector('summary');
+      const body = d.querySelector('.proc-other-body');
+      const DURATION = 350;
+      let anim = null;
+
+      function animate(from, to, onDone) {
+        if (anim) anim.cancel();
+        d.style.overflow = 'hidden';
+        anim = d.animate(
+          { height: [from + 'px', to + 'px'] },
+          { duration: DURATION, easing: 'ease' }
+        );
+        anim.onfinish = anim.oncancel = () => {
+          d.style.overflow = '';
+          anim = null;
+          if (onDone) onDone();
+        };
+      }
+
+      function openIt() {
+        const from = d.offsetHeight;
+        d.open = true;
+        const to = summary.offsetHeight + body.offsetHeight + 4;
+        animate(from, to);
+      }
+
+      function closeIt() {
+        const from = d.offsetHeight;
+        const to = summary.offsetHeight + 4;
+        animate(from, to, () => { d.open = false; });
+      }
+
+      summary.addEventListener('click', e => {
+        e.preventDefault();
+        if (d.open && !(anim && d.dataset.closing !== '1')) {
+          d.dataset.closing = '1';
+          closeIt();
+        } else if (d.open && anim) {
+          d.dataset.closing = '1';
+          closeIt();
+        } else {
+          d.dataset.closing = '';
+          otherList.querySelectorAll('.proc-other-item[open]').forEach(o => {
+            if (o !== d) o.querySelector('summary').click();
+          });
+          openIt();
+        }
+      });
+    });
+  }
 
   function renderActive() {
     const item = PROCESS_DATA[activeKey] || PROCESS_DATA.design;
@@ -353,27 +406,28 @@ const PROCESS_DATA = {
       </div>
     `;
 
-    const restKeys = keys.filter(k => k !== activeKey);
+const restKeys = keys.filter(k => k !== activeKey);
     otherList.innerHTML = restKeys.map(k => {
       const other = PROCESS_DATA[k];
       return `
-        <div class="proc-acc-item" data-key="${k}">
-          <button type="button" class="proc-acc-btn" aria-expanded="false">
-            <span>
+        <details class="proc-other-item" data-key="${k}">
+          <summary>
+            <span class="proc-sum-main">
               <strong>${T(other.title)}</strong>
               <small>${T(other.shortDesc)}</small>
             </span>
-            <span class="proc-acc-arrow" aria-hidden="true">⌄</span>
-          </button>
-          <div class="proc-acc-body" hidden>
+          </summary>
+          <div class="proc-other-body">
             <ul>
               ${other.steps.map(s => `<li><strong>${T(s.title)}:</strong> ${T(s.text)}</li>`).join('')}
             </ul>
             <button type="button" class="proc-switch-btn" data-select="${k}">${T('Перейти к направлению')}</button>
           </div>
-        </div>
+        </details>
       `;
     }).join('');
+
+    initProcAccordion();
   }
 
   tabs.forEach(tab => {
@@ -385,21 +439,10 @@ const PROCESS_DATA = {
 
   otherList.addEventListener('click', e => {
     const switchBtn = e.target.closest('[data-select]');
-    if (switchBtn) {
-      activeKey = switchBtn.dataset.select;
-      renderActive();
-      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      return;
-    }
-
-    const accBtn = e.target.closest('.proc-acc-btn');
-    if (!accBtn) return;
-    const itemEl = accBtn.closest('.proc-acc-item');
-    const bodyEl = $('.proc-acc-body', itemEl);
-    const expanded = accBtn.getAttribute('aria-expanded') === 'true';
-    accBtn.setAttribute('aria-expanded', String(!expanded));
-    bodyEl.hidden = expanded;
-    itemEl.classList.toggle('is-open', !expanded);
+    if (!switchBtn) return;
+    activeKey = switchBtn.dataset.select;
+    renderActive();
+    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   });
 
   document.addEventListener('langchange', renderActive);

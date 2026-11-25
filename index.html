@@ -52,7 +52,7 @@
     </div>
   </div>
 </section>
-
+<div class="bg-section">
 <section id="services" aria-labelledby="h-serv">
  <div class="wrap">
   <h2 id="h-serv">Три направления, один договор</h2>
@@ -81,16 +81,54 @@
  </div>
 </section>
 
-<section id="why" class="why" aria-labelledby="h-why">
- <div class="wrap">
-  <h2 id="h-why">Почему выбирают нас</h2>
-  <div class="grid c3">
-   <div class="item"><h3>Один подрядчик вместо десяти</h3><p>Не нужно искать дизайнера, бригаду, клининг и управляющего по отдельности.</p></div>
-   <div class="item"><h3>Полный контроль</h3><p>Личный менеджер, понятная смета и отчёт по каждому этапу.</p></div>
-   <div class="item"><h3>Гарантия</h3><p>Письменная гарантия на работы и обслуживание после сдачи объекта.</p></div>
+  <section id="why" class="why" aria-labelledby="h-why">
+   <div class="wrap">
+    <h2 id="h-why">Почему выбирают нас</h2>
+    <div class="grid c3">
+     <div class="item"><h3>Один подрядчик вместо десяти</h3><p>Не нужно искать дизайнера, бригаду, клининг и управляющего по отдельности.</p></div>
+     <div class="item"><h3>Полный контроль</h3><p>Личный менеджер, понятная смета и отчёт по каждому этапу.</p></div>
+     <div class="item"><h3>Гарантия</h3><p>Письменная гарантия на работы и обслуживание после сдачи объекта.</p></div>
+    </div>
+   </div>
+  </section>
   </div>
- </div>
-</section>
+  <section id="process" class=" proc-v2" aria-labelledby="h-proc">
+    <div class="wrap">
+      <h2 id="h-proc">Как мы работаем</h2>
+      <p class="lead">Прозрачный и понятный процесс сотрудничества по любому из наших направлений.</p>
+  
+      <div class="proc-tabs" role="tablist" aria-label="Направления работы">
+        <button type="button" class="proc-tab is-active" role="tab" aria-selected="true" data-proc="design">
+          <span class="proc-tab-num">01</span>
+          <span class="proc-tab-title">Проектирование и ремонт</span>
+        </button>
+        <button type="button" class="proc-tab" role="tab" aria-selected="false" data-proc="rent">
+          <span class="proc-tab-num">02</span>
+          <span class="proc-tab-title">Управление и аренда</span>
+        </button>
+        <button type="button" class="proc-tab" role="tab" aria-selected="false" data-proc="service">
+          <span class="proc-tab-num">03</span>
+          <span class="proc-tab-title">Обслуживание и клининг</span>
+        </button>
+      </div>
+  
+      <div id="proc-panel" class="proc-panel" role="tabpanel"></div>
+  
+      <div class="proc-other">
+        <h3 class="proc-other-title">Другие направления работы</h3>
+        <div id="proc-other-list" class="proc-other-list"></div>
+      </div>
+  
+      <div class="proc-cta-box">
+        <div>
+          <h3>Обсудить ваш проект</h3>
+          <p>Получите консультацию и индивидуальное предложение от нашей команды.</p>
+        </div>
+        <a href="#contact" class="btn">Оставить заявку →</a>
+      </div>
+    </div>
+  </section>
+
 
 <section id="portfolio" aria-labelledby="h-port">
  <div class="wrap">
@@ -109,58 +147,6 @@
   <div class="arrows"><button data-dir="-1" aria-label="Назад">←</button><button data-dir="1" aria-label="Вперёд">→</button></div>
  </div>
 </section>
-
-<section id="process" class=" proc-v2" aria-labelledby="h-proc">
-  <div class="wrap">
-    <h2 id="h-proc">Как мы работаем</h2>
-    <p class="lead">Прозрачный и понятный процесс сотрудничества по любому из наших направлений.</p>
-
-    <div class="proc-tabs" role="tablist" aria-label="Направления работы">
-      <button type="button" class="proc-tab is-active" role="tab" aria-selected="true" data-proc="design">
-        <span class="proc-tab-num">01</span>
-        <span class="proc-tab-title">Проектирование и ремонт</span>
-      </button>
-      <button type="button" class="proc-tab" role="tab" aria-selected="false" data-proc="rent">
-        <span class="proc-tab-num">02</span>
-        <span class="proc-tab-title">Управление и аренда</span>
-      </button>
-      <button type="button" class="proc-tab" role="tab" aria-selected="false" data-proc="service">
-        <span class="proc-tab-num">03</span>
-        <span class="proc-tab-title">Обслуживание и клининг</span>
-      </button>
-    </div>
-
-    <div id="proc-panel" class="proc-panel" role="tabpanel"></div>
-
-    <div class="proc-other">
-      <h3 class="proc-other-title">Другие направления работы</h3>
-      <div id="proc-other-list" class="proc-other-list"></div>
-    </div>
-
-    <div class="proc-cta-box">
-      <div>
-        <h3>Обсудить ваш проект</h3>
-        <p>Получите консультацию и индивидуальное предложение от нашей команды.</p>
-      </div>
-      <a href="#contact" class="btn">Оставить заявку →</a>
-    </div>
-  </div>
-</section>
-
-<!-- <section id="process" class="why" aria-labelledby="h-proc">
- <div class="wrap">
-  <h2 id="h-proc">Как мы работаем</h2>
-  <p class="lead">От заявки до ключей или первого дохода от аренды.</p>
-  <ol class="steps">
-   <li><h3>Заявка и консультация</h3><p>Обсуждаем задачу и бюджет, назначаем замер.</p></li>
-   <li><h3>Проект и смета</h3><p>Готовим дизайн или план работ и фиксируем стоимость в договоре.</p></li>
-   <li><h3>Ремонт и строительство</h3><p>Ведём объект, вы видите отчёты и фото каждую неделю.</p></li>
-   <li><h3>Сдача объекта</h3><p>Приёмка, гарантия, передача ключей.</p></li>
-   <li><h3>Аренда и управление</h3><p>Находим арендаторов, работаем с УК, собираем платежи.</p></li>
-   <li><h3>Обслуживание</h3><p>Клининг и техническая поддержка, чтобы объект приносил доход.</p></li>
-  </ol>
- </div>
-</section> -->
 
 <section id="faq" aria-labelledby="h-faq">
  <div class="wrap">

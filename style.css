@@ -194,12 +194,19 @@ header.open nav ul {
   pointer-events: none;
 }
 
-#services{
-position: relative;
-color: #fff;
-background:
+.bg-section {
+  background:
   linear-gradient(180deg, #181a1f 0%, rgba(24, 26, 31, 0.45) 140px, transparent 260px),
   url('images/services_bg.png') center / cover no-repeat;
+}
+
+
+#services {
+position: relative;
+color: #fff;
+/* background:
+  linear-gradient(180deg, #181a1f 0%, rgba(24, 26, 31, 0.45) 140px, transparent 260px),
+  url('images/services_bg.png') center / cover no-repeat; */
 }
 
 #services .lead{
@@ -287,11 +294,11 @@ background:
   margin-top: auto;
   color: var(--ink);
 }
-.why {
+/* .why {
   background: var(--plaster);
-}
+} */
 .why .item {
-  background:#324a6e;
+  background:#0c0f15;
   border-radius: var(--r);
   padding: 20px;
 }
@@ -1439,6 +1446,7 @@ img {
 .to-top:hover .arrow { transform: translateY(-2px); }
 
 
+
 .proc-v2 {
   --proc-accent: #f5b700;
   --proc-card-bg: rgba(255, 255, 255, .03);
@@ -1447,8 +1455,6 @@ img {
   --proc-muted: rgba(255, 255, 255, .74);
   --proc-line: rgba(245, 183, 0, .35);
 }
-
-
 
 .proc-tabs {
   display: grid;
@@ -1557,8 +1563,6 @@ img {
   object-fit: cover;
   display: block;
 }
-
-
 
 .proc-acc-item {
   border: 1px solid var(--proc-border);

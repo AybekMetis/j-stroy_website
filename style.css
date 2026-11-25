@@ -1,12 +1,16 @@
 :root {
+  color-scheme: dark;
   --ink: #16263d;
   --ink2: #22385a;
-  --plaster: #eef0f2;
-  --paper: #fff;
-  --line: #d5dae0;
+  --plaster: #17212f;
+  --paper: #0e1520;
+  --line: #2b394d;
   --sun: #f2b705;
-  --text: #1b2430;
-  --mute: #5b6675;
+  --text: #e6ecf5;
+  --mute: #a3b2c7;
+  --btn: #e6ecf5;
+  --btn-fg: #0e1520;
+  --err: #ff8a80;
   --r: 10px;
 }
 * {
@@ -287,7 +291,7 @@ background:
   background: var(--plaster);
 }
 .why .item {
-  background: var(--paper);
+  background:#324a6e;
   border-radius: var(--r);
   padding: 20px;
 }
@@ -1302,91 +1306,38 @@ header.open .burger {
   }
 }
 
-/* ===== Тёмная тема ===== */
-:root {
-  color-scheme: light;
-  --btn: var(--ink);        /* цвет рамки и текста кнопок-контуров */
-  --btn-fg: #fff;           /* текст на залитой кнопке */
-  --err: #c62828;
-}
-
-:root[data-theme="dark"] {
-  color-scheme: dark;       /* тёмные поля ввода, скроллбары, диалоги */
-  --paper: #0e1520;
-  --plaster: #17212f;
-  --line: #2b394d;
-  --text: #e6ecf5;
-  --mute: #a3b2c7;
-  --btn: #e6ecf5;
-  --btn-fg: #0e1520;
-  --err: #ff8a80;
-}
-
-/* использовать --err вместо жёстко заданного красного */
-input[aria-invalid="true"],
-select[aria-invalid="true"] { border-color: var(--err); }
-.err { color: var(--err); }
-
-/* общие поверхности */
-dialog { background: var(--paper); color: var(--text); }
-input, select { background: var(--paper); color: var(--text); }
-
 /* кнопки, у которых цвет раньше брался из --ink */
-:root[data-theme="dark"] .filters button,
-:root[data-theme="dark"] .arrows button {
+.filters button,
+.arrows button {
   border-color: var(--btn);
   color: var(--btn);
 }
-:root[data-theme="dark"] .filters button[aria-pressed="true"] {
+.filters button[aria-pressed="true"] {
   background: var(--btn);
   color: var(--btn-fg);
 }
-:root[data-theme="dark"] .arrows button:hover {
+.arrows button:hover {
   background: var(--btn);
   color: var(--btn-fg);
 }
-:root[data-theme="dark"] .card .btn {
+.card .btn {
   background: var(--btn);
   color: var(--btn-fg);
 }
 
-/* форма на тёмной секции контактов, футер, карточки, изображения */
-:root[data-theme="dark"] form { background: var(--plaster); }
-:root[data-theme="dark"] footer { background: #080d15; border-top: 1px solid var(--line); }
-:root[data-theme="dark"] .card:hover { box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5); }
-:root[data-theme="dark"] img { filter: brightness(0.9); }
-
-/* ===== Кнопка переключения ===== */
-.theme-toggle {
-  display: grid;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  margin-left: auto;
-  background: none;
-  border: 0;
-  color: #fff;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: background-color 0.2s, transform 0.3s;
+/* форма, футер, карточки, изображения */
+form {
+  background: var(--plaster);
 }
-.theme-toggle:hover { background: rgba(255, 255, 255, 0.12); transform: rotate(15deg); }
-.theme-toggle svg { grid-area: 1 / 1; transition: opacity 0.25s, transform 0.4s; }
-.theme-toggle .i-sun  { opacity: 0; transform: rotate(-90deg) scale(0.6); }
-:root[data-theme="dark"] .theme-toggle .i-sun  { opacity: 1; transform: none; }
-:root[data-theme="dark"] .theme-toggle .i-moon { opacity: 0; transform: rotate(90deg) scale(0.6); }
-
-.burger { margin-left: 0; }
-@media (min-width: 1024px) {
-  nav { margin-left: auto; }
-  .theme-toggle { order: 2; margin-left: 12px; }
+footer {
+  background: #080d15;
+  border-top: 1px solid var(--line);
 }
-
-/* плавная смена темы (включается на время переключения) */
-.theme-anim *,
-.theme-anim *::before,
-.theme-anim *::after {
-  transition: background-color 0.35s, color 0.35s, border-color 0.35s, box-shadow 0.35s !important;
+.card:hover {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+}
+img {
+  filter: brightness(0.9);
 }
 
 
@@ -1497,14 +1448,7 @@ input, select { background: var(--paper); color: var(--text); }
   --proc-line: rgba(245, 183, 0, .35);
 }
 
-:root[data-theme="light"] .proc-v2,
-body.light .proc-v2 {
-  --proc-card-bg: #ffffff;
-  --proc-card-active: rgba(245, 183, 0, .12);
-  --proc-border: rgba(15, 23, 42, .12);
-  --proc-muted: rgba(15, 23, 42, .72);
-  --proc-line: rgba(15, 23, 42, .16);
-}
+
 
 .proc-tabs {
   display: grid;
